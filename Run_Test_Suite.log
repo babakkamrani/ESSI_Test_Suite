@@ -1,0 +1,57 @@
+                                     				ESSI TEST SUITE RUN LOG 
+-------------------------------------------------------------------------------------------------------------------------------------------------
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+cml06.engr.ucdavis.edu
+User: babak
+Wed Feb 25 23:23:36 UTC 2015
+-------------------------------------------------------------------------------------------------------------------------------------------------
+Test:	./Examples/8_Nodes_Brick_Contact/1-8NodeBricks+ContactsAround.fei							Passed
+Test:	./Examples/20_Node_Brick/20_Node_Brick_Static.fei									Passed
+Test:	./Examples/27_Nodes_Brick_9_dof_Beam/example_add_element_Elastic27NodeBrick_DRM.fei					Passed
+Test:	./Examples/27_Nodes_Brick-Contact/Example.fei										Passed
+Test:	./Examples/Beam_Element/example_add_element_beam_dynamic.fei								Passed
+Test:	./Examples/Beam_Element/example_add_element_beam_static.fei								Passed
+Test:	./Examples/Beam_Element/example_add_element_beam_two_stages.fei - static stage					Passed
+Test:	./Examples/Beam_Element/example_add_element_beam_two_stages.fei -  shake stage					Passed
+Test:	./Examples/Eight_Node_Brick/example_add_element_8nodebrick_drucker_prager_IH.fei confinement stage			Passed
+Test:	./Examples/Eight_Node_Brick/example_add_element_8nodebrick_drucker_prager_IH.fei shear stage				Passed
+Test:	./Examples/Eight_Node_Brick/example_add_element_8nodebrick_drucker_prager_KH.fei confinement stage			Passed
+Test:	./Examples/Eight_Node_Brick/example_add_element_8nodebrick_drucker_prager_KH.fei shear stage				Passed
+Test:	./Examples/Eight_Node_Brick/example_add_element_8nodebrick_drucker_prager_PP.fei confinement stage			Passed
+Test:	./Examples/Eight_Node_Brick/example_add_element_8nodebrick_drucker_prager_PP.fei shear stage				Passed
+Test:	./Examples/Eight_Node_Brick/example_add_element_8nodebrick_SaniSand2004.fei confinement stage				Passed
+Test:	./Examples/Eight_Node_Brick/example_add_element_8nodebrick_SaniSand2004.fei shear stage				Passed
+Test:	./Examples/Eight_Node_Brick/example_add_element_8nodebrick_SaniSand2008.fei confinement stage				Passed
+Test:	./Examples/Eight_Node_Brick/example_add_element_8nodebrick_SaniSand2008.fei shear stage				Passed
+Test:	./Examples/Eight_Node_Brick/example_add_element_8nodebrick_von_mises_IH.fei confinement stage				Passed
+Test:	./Examples/Eight_Node_Brick/example_add_element_8nodebrick_von_mises_IH.fei shear stage				Passed
+Test:	./Examples/Eight_Node_Brick/example_add_element_8nodebrick_von_mises_KH.fei confinement stage				Passed
+Test:	./Examples/Eight_Node_Brick/example_add_element_8nodebrick_von_mises_KH.fei shear stage				Passed
+Test:	./Examples/Eight_Node_Brick/example_add_element_8nodebrick_von_mises_PP.fei confinement stage				Passed
+Test:	./Examples/Eight_Node_Brick/example_add_element_8nodebrick_von_mises_PP.fei shear stage				Passed
+Test:	./Examples/Eight_Node_Brick_Accelerated/example_add_element_8nodebrick_drucker_prager_IH.fei confinement stage	NOT Passed
+Test:	./Examples/Eight_Node_Brick_Accelerated/example_add_element_8nodebrick_drucker_prager_IH.fei shear stage		NOT Passed
+Test:	./Examples/Eight_Node_Brick_Accelerated/example_add_element_8nodebrick_drucker_prager_KH.fei confinement stage	Passed
+Test:	./Examples/Eight_Node_Brick_Accelerated/example_add_element_8nodebrick_drucker_prager_KH.fei shear stage		Passed
+Test:	./Examples/Eight_Node_Brick_Accelerated/example_add_element_8nodebrick_drucker_prager_PP.fei confinement stage	Passed
+Test:	./Examples/Eight_Node_Brick_Accelerated/example_add_element_8nodebrick_drucker_prager_PP.fei shear stage		Passed
+Test:	./Examples/Eight_Node_Brick_Accelerated/example_add_element_8nodebrick_von_mises_IH.fei confinement stage		Passed
+Test:	./Examples/Eight_Node_Brick_Accelerated/example_add_element_8nodebrick_von_mises_IH.fei shear stage			Passed
+Test:	./Examples/Eight_Node_Brick_Accelerated/example_add_element_8nodebrick_von_mises_KH.fei confinement stage		Passed
+Test:	./Examples/Eight_Node_Brick_Accelerated/example_add_element_8nodebrick_von_mises_KH.fei shear stage			Passed
+Test:	./Examples/Eight_Node_Brick_Accelerated/example_add_element_8nodebrick_von_mises_PP.fei confinement stage		Passed
+Test:	./Examples/Eight_Node_Brick_Accelerated/example_add_element_8nodebrick_von_mises_PP.fei shear stage			Passed
+Test:	./Examples/Shell_Elements/example_add_shell_elements_static_outof_plane.fei						Passed
+Test:	./Examples/Shell_Elements/example_add_shell_elements_static_in_plane.fei						Passed
+Test:	./Examples/Shell_Elements/example_add_shell_elements_dynamic_outof_plane.fei						Passed
+Test:	./Examples/Shell_Elements/example_add_shell_elements_eigen.fei periods							Passed
+Test:	./Examples/Shell_Elements/example_add_shell_elements_eigen.fei eigen mode 1						Passed
+Test:	./Examples/Shell_Elements/example_add_shell_elements_eigen.fei eigen value						Passed
+Test:	./Examples/Shell_Elements/example_add_shell_elements_eigen.fei Frequencies						Passed
+Test:	./Examples/Truss_Element/example_add_element_truss_static_loading.fei							Passed
+Test:	./Examples/Truss_Element/example_add_element_truss_pathtimeseries_force.fei						Passed
+Test:	./Examples/Truss_Element/example_add_element_truss_two_Stages.fei static stage					Passed
+Test:	./Examples/Truss_Element/example_add_element_truss_two_Stages.fei dynamic stage					Passed
