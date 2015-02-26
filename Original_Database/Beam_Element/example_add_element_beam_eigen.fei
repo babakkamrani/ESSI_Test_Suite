@@ -1,0 +1,37 @@
+//essi test suite
+//developed by Babak Kamrani
+//babakkamrani@yahoo.com
+//------------------------------------
+
+// Model Definition:
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+model name "beam";
+add material # 1 type uniaxial_elastic elastic_modulus = 1e4*N/m^2 viscoelastic_modulus = 0.0*kg/m/s;
+
+// Coordinates of the Nodes
+add node No 1  at (0*m, 0*m ,  0*m) with 6 dofs;      
+add node No 2  at (0*m, 0*m ,  1*m) with 6 dofs;
+
+// Add Truss Element
+add element # 1 type beam_elastic with nodes (1, 2) cross_section=1.0*m^2 
+						     elastic_modulus=1.0e4*N/m^2 
+						     shear_modulus=2.0e4*N/m^2 
+						     torsion_Jx=20*m^4 
+						     bending_Iy=10*m^4 
+						     bending_Iz=10*m^4 
+						     mass_density=1000.0*kg/m^3 
+						     xz_plane_vector = (0, -1, 0) 
+						     joint_1_offset = (0.0*m, 0.0*m, 0.0*m) 
+						     joint_2_offset = (0.0*m, 0.0*m, 0.0*m);
+add damping # 1 type Rayleigh with a0 = 1.23*1/s a1 = .003*s stiffness_to_use = Initial_Stiffness;
+add damping # 1 to element # 1;
+
+// Constrains
+fix node No 1 dofs all;
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Eigen Analysis .... 
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+new loading stage "Eigen";
+simulate using eigen algorithm number_of_modes = 1;
+bye;
