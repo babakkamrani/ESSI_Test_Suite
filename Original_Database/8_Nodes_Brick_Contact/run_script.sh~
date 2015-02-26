@@ -1,0 +1,3 @@
+rm *.feioutput *.pdf
+../essi -f 1-8NodeBricks+ContactsAround.fei
+python Post_Process.py
