@@ -1,0 +1,116 @@
+//essi test suite
+//developed by Babak Kamrani
+//babakkamrani@yahoo.com
+//------------------------------------
+
+// Model Definition:
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+model name "Eight_Node_Brick_Triaxial_SS2004";
+
+
+// Constitutive Model
+// Constitutive model
+  add material # 1 type sanisand2004
+                   mass_density = 0.0*kg/m^3 
+                   e0 = 0.833 
+                   sanisand2004_G0 = 125.0 
+                   poisson_ratio = 0.25 
+                   sanisand2004_Pat = 100.0*kPa
+                   sanisand2004_p_cut = 0.01 
+                   sanisand2004_Mc = 1.25
+                   sanisand2004_c = 0.8
+                   sanisand2004_lambda_c = 0.019
+                   sanisand2004_xi = 0.7
+                   sanisand2004_ec_ref = 0.934
+                   sanisand2004_m = 0.01
+                   sanisand2004_h0 = 7.05 
+                   sanisand2004_ch = 0.968
+                   sanisand2004_nb = 1.1
+                   sanisand2004_A0 = 0.704 
+                   sanisand2004_nd = 3.5
+                   sanisand2004_z_max = 4.0 
+                   sanisand2004_cz = 600.0
+                   initial_confining_stress = 100.0*kPa
+                   algorithm = explicit
+                   number_of_subincrements = 1
+                   maximum_number_of_iterations = 40
+                   tolerance_1 = 1.0e-7
+                   tolerance_2 = 1.0e-7;
+
+
+// Nodal  Coordinates
+add node # 1 at (1*m, 1*m , 1*m) with 3 dofs;      
+add node # 2 at (0*m, 1*m , 1*m) with 3 dofs;      
+add node # 3 at (0*m, 0*m , 1*m) with 3 dofs;      
+add node # 4 at (1*m, 0*m , 1*m) with 3 dofs;      
+add node # 5 at (1*m, 1*m , 0*m) with 3 dofs;      
+add node # 6 at (0*m, 1*m , 0*m) with 3 dofs;      
+add node # 7 at (0*m, 0*m , 0*m) with 3 dofs;      
+add node # 8 at (1*m, 0*m , 0*m) with 3 dofs; 
+
+
+// Elements
+add element # 1 type 8NodeBrick with nodes (1,2,3,4,5,6,7,8) use material # 1;
+
+
+
+// Constrains
+fix node No 7 dofs all;
+fix node No 2 dofs ux;
+fix node No 3 dofs ux uy;
+fix node No 4 dofs uy;
+fix node No 5 dofs uz;
+fix node No 6 dofs ux uz;
+fix node No 8 dofs uy uz;
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Confinement Loading.. 
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+new loading stage "confinement";
+add load # 1  to node # 1 type linear Fx = -25.0*N;
+add load # 2  to node # 1 type linear Fy = -25.0*N;
+add load # 3  to node # 1 type linear Fz = -25.0*N;
+add load # 4  to node # 2 type linear Fy = -25.0*N;
+add load # 5  to node # 2 type linear Fz = -25.0*N;
+add load # 6  to node # 3 type linear Fz = -25.0*N;
+add load # 7  to node # 4 type linear Fx = -25.0*N;
+add load # 8  to node # 4 type linear Fz = -25.0*N;
+add load # 9  to node # 5 type linear Fx = -25.0*N;
+add load # 10 to node # 5 type linear Fy = -25.0*N;
+add load # 11 to node # 6 type linear Fy = -25.0*N;
+add load # 12 to node # 8 type linear Fx = -25.0*N;
+
+
+
+
+
+define load factor increment 0.01;
+define algorithm with_no_convergence_check;
+define solver ProfileSPD;
+simulate 100 steps using static algorithm;
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Shear Loading.. 
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+new loading stage "shear";
+
+// load
+add load # 13 to node # 1 type linear Fz = -100*N;
+add load # 14 to node # 2 type linear Fz = -100*N;
+add load # 15 to node # 3 type linear Fz = -100*N;
+add load # 16 to node # 4 type linear Fz = -100*N;
+
+
+
+define static integrator displacement_control using node # 1 dof uz increment -0.0001*m;
+define algorithm with_no_convergence_check;
+define solver ProfileSPD;
+simulate 250 steps using static algorithm;
+
+
+bye;
+
+
+

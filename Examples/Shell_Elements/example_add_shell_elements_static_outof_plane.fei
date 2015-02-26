@@ -1,0 +1,86 @@
+//essi test suite
+//developed by Babak Kamrani
+//babakkamrani@yahoo.com
+//------------------------------------
+
+model name "Shell_Elements";
+
+h 		= 0.2*m;				// Shell thickness
+Eshell 	= 1*N/m^2;			// Elastic modulus
+nu 		= 0.0;				// Poisson's ratio
+L 		= 30*m;				// Beam length
+B 		= 3*m;				// Beam width
+rho 	= 0.0*kg/m^3;		// Mass density
+delta_tip 	= 100*m;		// Target tip displacement
+
+Nsubd 		= 1;			// Number of side subdivisions
+
+dx = L/Nsubd;
+dy = B;
+
+EA = Eshell * (h*B);
+qtip = EA/L*delta_tip/B;
+Ptip  = qtip*B;
+Mtip = qtip*B^2/12;
+
+// Model Definition:
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+add material # 1 type linear_elastic_isotropic_3d 
+	mass_density = rho
+	elastic_modulus = Eshell
+	poisson_ratio = nu;
+
+add acceleration field # 1 
+	ax = 0*g 
+	ay = 0*g 
+	az = 0*g ;
+
+
+i = 1;
+while (i <= (Nsubd+1))
+{
+	x_coord = (i-1)*dx;
+	add node # (2*i-1) at (x_coord,0*m,0*m) with 6 dofs;
+	add node # (2*i-0) at (x_coord,B,0*m) with 6 dofs;
+	i += 1;
+}
+
+i = 1;
+while(i <= Nsubd)
+{
+	n1 = 2*i;
+	n2 = 2*i-1;
+	n3 = 2*i+1; 
+	n4 = 2*i+2;
+	add element # i type 4NodeShell_ANDES with nodes (n1, n2, n3, n4) 
+		use material # 1
+		thickness = h;
+	i += 1;
+};
+
+
+fix node # 1 dofs all;
+fix node # 2 dofs all;
+fix node # (2*Nsubd+2) dofs rz;
+fix node # (2*Nsubd+1) dofs rz;
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// // In plane Loading. 
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+new loading stage "Outof_Plane";
+
+add load # 1 to node # (2*Nsubd+2) type linear Fz = Ptip/2; 
+add load # 2 to node # (2*Nsubd+1) type linear Fz = Ptip/2; 
+
+
+
+define algorithm with_no_convergence_check;
+define solver UMFPack;
+
+
+define load factor increment 0.1;
+simulate 10 steps using static algorithm;
+
+
+bye;

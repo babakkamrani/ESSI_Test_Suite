@@ -1,0 +1,27 @@
+//------------------------ Nodes Constraint Data -----------------------
+fix node # 1 dofs all;
+fix node # 2 dofs all;
+fix node # 4 dofs all;
+fix node # 6 dofs all;
+fix node # 9 dofs all;
+fix node # 11 dofs all;
+fix node # 14 dofs all;
+fix node # 16 dofs all;
+fix node # 22 dofs all;
+fix node # 27 dofs all;
+fix node # 29 dofs all;
+fix node # 32 dofs all;
+fix node # 34 dofs all;
+fix node # 42 dofs all;
+fix node # 44 dofs all;
+fix node # 52 dofs all;
+fix node # 54 dofs all;
+fix node # 59 dofs all;
+fix node # 62 dofs all;
+fix node # 67 dofs all;
+fix node # 75 dofs all;
+fix node # 77 dofs all;
+fix node # 93 dofs all;
+fix node # 94 dofs all;
+fix node # 119 dofs all;
+//------------------------ Nodes Constraint Data -----------------------

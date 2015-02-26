@@ -1,0 +1,72 @@
+  model name "contact";
+  new loading stage "self weight";
+  include "./Mesh/Nodes_Soil.fei";
+  include "./Mesh/Nodes_foundationSlab.fei";
+  include "./Mesh/Nodes_XFace-1.fei";
+  include "./Mesh/Nodes_XFace+1.fei";
+  include "./Mesh/Nodes_YFace-1.fei";
+  include "./Mesh/Nodes_YFace+1.fei";
+  
+  
+  //Definition of the Materials:
+  //----------------------------------------------------------------------------
+  soil_material_number = 1;
+  soil_density = 1800*kg/m^3;
+  soil_shear_wave_velocity = 550*m/s;
+  soil_poisson = 0.0;
+  soil_shear_modulus = soil_density*soil_shear_wave_velocity^2;
+  soil_elastic_modulus = 2 * (1 + soil_poisson ) * soil_shear_modulus;
+
+
+  concrete_material_number = 2;
+  concrete_density = 2200*kg/m^3;
+  concrete_shear_wave_velocity = 2500*m/s;
+  concrete_poisson = 0.0;
+  concrete_shear_modulus = concrete_density * concrete_shear_wave_velocity ^2;
+  concrete_elastic_modulus = 2 * (1 + concrete_poisson ) * concrete_shear_modulus;
+
+  add material #    soil_material_number     type linear_elastic_isotropic_3d mass_density =     soil_density elastic_modulus     =       soil_elastic_modulus poisson_ratio     =  soil_poisson;
+  add material #    concrete_material_number type linear_elastic_isotropic_3d mass_density =     concrete_density elastic_modulus =       concrete_elastic_modulus poisson_ratio =  concrete_poisson;
+
+  add acceleration field # 1 ax=0.0*m/s^2 ay=0.0*m/s^2 az=-9.81*m/s^2;
+  //----------------------------------------------------------------------------
+
+
+//------------------------ Mesh Emlement Data -----------------------
+  include "./Mesh/Elements_Solids_Soil.fei";
+  include "./Mesh/Elements_Solids_foundationSlab.fei";
+  include "./Mesh/Elements_Contacts_Soil-FoundationSlab.fei";
+  
+  include "./Mesh/Elements_Solids_XConst.fei";
+  include "./Mesh/Elements_Contacts_XConst-FoundationSlab.fei";
+
+  include "./Mesh/Elements_Solids_YConst.fei";
+  include "./Mesh/Elements_Contacts_YConst-FoundationSlab.fei";
+//------------------------ End of Mesh Emlement Data ----------------
+  
+  
+//------------------------ Fixities Data -----------------------
+  include "./Mesh/Fixed_Nodes_Soil.fei";
+  include "./Mesh/Fixed_Nodes_XConstFaceElements.fei";
+  include "./Mesh/Fixed_Nodes_YConstFaceElements.fei";
+//------------------------ End of Fixities Data -----------------------
+
+  
+// ---- Load definition ... 
+add load # 1 to element # 13 type self_weight use acceleration field # 1;
+add load # 2 to element # 14 type self_weight use acceleration field # 1;
+add load # 3 to element # 15 type self_weight use acceleration field # 1;
+add load # 4 to element # 16 type self_weight use acceleration field # 1;
+//-------------------------
+
+define load factor increment 1;
+define algorithm With_no_convergence_check;
+define solver ProfileSPD;
+simulate 1 steps using static algorithm;
+
+bye;
+
+
+
+
+

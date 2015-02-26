@@ -1,0 +1,29 @@
+contact_tangent_stiffness = 18750000000*N/m;
+contact_normal_stiffness  = 18750000000*N/m;
+
+//Contact between Foundation Slab and Soil
+add element #  17 type contact with nodes (135,176) normal_stiffness = contact_tangent_stiffness tangential_stiffness = contact_tangent_stiffness  friction_ratio = 1.0 maximum_gap = 0.1*m contact_plane_vector = (0.0,0.0,1.0);
+add element #  18 type contact with nodes (137,178) normal_stiffness = contact_tangent_stiffness tangential_stiffness = contact_tangent_stiffness  friction_ratio = 1.0 maximum_gap = 0.1*m contact_plane_vector = (0.0,0.0,1.0);
+add element #  19 type contact with nodes (142,185) normal_stiffness = contact_tangent_stiffness tangential_stiffness = contact_tangent_stiffness  friction_ratio = 1.0 maximum_gap = 0.1*m contact_plane_vector = (0.0,0.0,1.0);
+add element #  20 type contact with nodes (157,203) normal_stiffness = contact_tangent_stiffness tangential_stiffness = contact_tangent_stiffness  friction_ratio = 1.0 maximum_gap = 0.1*m contact_plane_vector = (0.0,0.0,1.0);
+add element #  21 type contact with nodes (166,220) normal_stiffness = contact_tangent_stiffness tangential_stiffness = contact_tangent_stiffness  friction_ratio = 1.0 maximum_gap = 0.1*m contact_plane_vector = (0.0,0.0,1.0);
+add element #  22 type contact with nodes (136,177) normal_stiffness = contact_tangent_stiffness tangential_stiffness = contact_tangent_stiffness  friction_ratio = 1.0 maximum_gap = 0.1*m contact_plane_vector = (0.0,0.0,1.0);
+add element #  23 type contact with nodes (140,180) normal_stiffness = contact_tangent_stiffness tangential_stiffness = contact_tangent_stiffness  friction_ratio = 1.0 maximum_gap = 0.1*m contact_plane_vector = (0.0,0.0,1.0);
+add element #  24 type contact with nodes (148,188) normal_stiffness = contact_tangent_stiffness tangential_stiffness = contact_tangent_stiffness  friction_ratio = 1.0 maximum_gap = 0.1*m contact_plane_vector = (0.0,0.0,1.0);
+add element #  25 type contact with nodes (159,205) normal_stiffness = contact_tangent_stiffness tangential_stiffness = contact_tangent_stiffness  friction_ratio = 1.0 maximum_gap = 0.1*m contact_plane_vector = (0.0,0.0,1.0);
+add element #  26 type contact with nodes (168,224) normal_stiffness = contact_tangent_stiffness tangential_stiffness = contact_tangent_stiffness  friction_ratio = 1.0 maximum_gap = 0.1*m contact_plane_vector = (0.0,0.0,1.0);
+add element #  27 type contact with nodes (141,184) normal_stiffness = contact_tangent_stiffness tangential_stiffness = contact_tangent_stiffness  friction_ratio = 1.0 maximum_gap = 0.1*m contact_plane_vector = (0.0,0.0,1.0);
+add element #  28 type contact with nodes (147,187) normal_stiffness = contact_tangent_stiffness tangential_stiffness = contact_tangent_stiffness  friction_ratio = 1.0 maximum_gap = 0.1*m contact_plane_vector = (0.0,0.0,1.0);
+add element #  29 type contact with nodes (153,196) normal_stiffness = contact_tangent_stiffness tangential_stiffness = contact_tangent_stiffness  friction_ratio = 1.0 maximum_gap = 0.1*m contact_plane_vector = (0.0,0.0,1.0);
+add element #  30 type contact with nodes (162,212) normal_stiffness = contact_tangent_stiffness tangential_stiffness = contact_tangent_stiffness  friction_ratio = 1.0 maximum_gap = 0.1*m contact_plane_vector = (0.0,0.0,1.0);
+add element #  31 type contact with nodes (171,232) normal_stiffness = contact_tangent_stiffness tangential_stiffness = contact_tangent_stiffness  friction_ratio = 1.0 maximum_gap = 0.1*m contact_plane_vector = (0.0,0.0,1.0);
+add element #  32 type contact with nodes (155,202) normal_stiffness = contact_tangent_stiffness tangential_stiffness = contact_tangent_stiffness  friction_ratio = 1.0 maximum_gap = 0.1*m contact_plane_vector = (0.0,0.0,1.0);
+add element #  33 type contact with nodes (158,204) normal_stiffness = contact_tangent_stiffness tangential_stiffness = contact_tangent_stiffness  friction_ratio = 1.0 maximum_gap = 0.1*m contact_plane_vector = (0.0,0.0,1.0);
+add element #  34 type contact with nodes (161,211) normal_stiffness = contact_tangent_stiffness tangential_stiffness = contact_tangent_stiffness  friction_ratio = 1.0 maximum_gap = 0.1*m contact_plane_vector = (0.0,0.0,1.0);
+add element #  35 type contact with nodes (169,227) normal_stiffness = contact_tangent_stiffness tangential_stiffness = contact_tangent_stiffness  friction_ratio = 1.0 maximum_gap = 0.1*m contact_plane_vector = (0.0,0.0,1.0);
+add element #  36 type contact with nodes (174,243) normal_stiffness = contact_tangent_stiffness tangential_stiffness = contact_tangent_stiffness  friction_ratio = 1.0 maximum_gap = 0.1*m contact_plane_vector = (0.0,0.0,1.0);
+add element #  37 type contact with nodes (165,219) normal_stiffness = contact_tangent_stiffness tangential_stiffness = contact_tangent_stiffness  friction_ratio = 1.0 maximum_gap = 0.1*m contact_plane_vector = (0.0,0.0,1.0);
+add element #  38 type contact with nodes (167,223) normal_stiffness = contact_tangent_stiffness tangential_stiffness = contact_tangent_stiffness  friction_ratio = 1.0 maximum_gap = 0.1*m contact_plane_vector = (0.0,0.0,1.0);
+add element #  39 type contact with nodes (170,231) normal_stiffness = contact_tangent_stiffness tangential_stiffness = contact_tangent_stiffness  friction_ratio = 1.0 maximum_gap = 0.1*m contact_plane_vector = (0.0,0.0,1.0);
+add element #  40 type contact with nodes (173,242) normal_stiffness = contact_tangent_stiffness tangential_stiffness = contact_tangent_stiffness  friction_ratio = 1.0 maximum_gap = 0.1*m contact_plane_vector = (0.0,0.0,1.0);
+add element #  41 type contact with nodes (175,248) normal_stiffness = contact_tangent_stiffness tangential_stiffness = contact_tangent_stiffness  friction_ratio = 1.0 maximum_gap = 0.1*m contact_plane_vector = (0.0,0.0,1.0);

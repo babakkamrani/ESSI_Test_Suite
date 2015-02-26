@@ -1,0 +1,42 @@
+//essi test suite
+//developed by Babak Kamrani
+//babakkamrani@yahoo.com
+//------------------------------------
+
+// Model Definition:
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+model name "truss";
+add material # 1 type uniaxial_elastic elastic_modulus = 1e4*N/m^2 viscoelastic_modulus = 0.0*kg/m/s;
+
+// Coordinates of the Nodes
+add node No 1  at (0*m, 0*m ,  0*m) with 3 dofs;      
+add node No 2  at (0*m, 0*m ,  1*m) with 3 dofs;
+
+// Add Truss Element
+add element # 1 type truss with nodes (1, 2) use material # 1 cross_section=1.0*m^2 mass_density=0.0*kg/m^3;
+add mass to node # 2 mx = 0*kg my = 0*kg mz = 1000*kg;
+add damping # 1 type Rayleigh with a0 = 1.23*1/s a1 = .003*s stiffness_to_use = Initial_Stiffness;
+add damping # 1 to element # 1;
+
+// Constrains
+fix node No 1 dofs all;
+fix node No 2 dofs ux uy;
+
+// 
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Static Simulation .... 
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+new loading stage "pathtimeseries_force";
+add load # 1 to node # 2 type path_time_series Fz=100.0*N series_file = "../Motion_Files/pathtimeseries_force.feiforce";								    
+									    
+									    
+define dynamic integrator Newmark with gamma = 0.5 beta = 0.25;
+define algorithm With_no_convergence_check;
+define solver ProfileSPD;
+simulate 400 steps using transient algorithm time_step = 0.01*s;
+
+
+
+
+
+bye;
